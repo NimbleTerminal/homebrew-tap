@@ -1,0 +1,50 @@
+name: Validate tap
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: validate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      # Homebrew publishes date-based releases, without major-version tags.
+      - uses: Homebrew/actions/setup-homebrew@2026.08.31.1
+        id: homebrew
+        with:
+          stable: true
+      - name: Validate casks
+        working-directory: ${{ steps.homebrew.outputs.repository-path }}
+        env:
+          TAP: ${{ steps.homebrew.outputs.tap-name }}
+          HOMEBREW_NO_ANALYTICS: "1"
+        shell: bash
+        run: |
+          shopt -s nullglob globstar
+          casks=(Casks/**/*.rb)
+          if ((${#casks[@]} == 0)); then
+            echo "No casks published yet."
+            exit 0
+          fi
+          brew style "${casks[@]}"
+          # Current Homebrew requires trust before evaluating third-party Ruby.
+          brew trust --tap "$TAP"
+          brew readall --os=all --arch=all "$TAP"

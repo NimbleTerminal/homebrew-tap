@@ -1,0 +1,17 @@
+# Merge into an upstream project's existing GoReleaser v2 configuration.
+# Replace names/paths; "default" must match the archive ID in that project.
+homebrew_casks:
+  - name: your-tool
+    ids:
+      - default
+    binaries:
+      - your-tool
+    homepage: https://github.com/NimbleTerminal/your-tool
+    description: Replace with a short description of the tool
+    skip_upload: auto
+    directory: Casks
+    repository:
+      owner: NimbleTerminal
+      name: homebrew-tap
+      branch: main
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
