@@ -4,26 +4,26 @@ cask "ntrecord" do
     depends_on macos: ">= :ventura"
   end
 
-  version "0.1.2"
+  version "0.2.0"
 
   on_macos do
     on_intel do
-      sha256 "62ed81ba5f99f2fb9df65bba08e6f7e201897827473d81f06e982b703556537d"
+      sha256 "a3c2a65d8afb796ae571904a43830330c20e0fe7428e97d3e023b4b223ac94a5"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
-      sha256 "f2360a8b1049f8e213db34edc90b742d3a6a762ff879fdc03b314aed9fc84f7e"
+      sha256 "5d9dcd910157ec0d91569f418bf9ebcf0207b442c4d0117b95d4acec57aacea6"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "59cbe50186ae9dbe4f7e61ea25ecfb55a3be64ccd1347141c5a684f3097aa45b"
+      sha256 "cc22dc0a0ec6d094ce2940cbc73e9628686577cba31679af95de9170bce0ff75"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "bfefc6ad1feaf9c55ebcdf61ec2e73ae52b79aae568eb760d0c8fbed3ac743e9"
+      sha256 "ace9332ddd9bc7f32403048ee56fd1ea8380dd5958a7bd8d5094bc5bc558a0eb"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_arm64.tar.gz"
     end
   end
@@ -43,5 +43,8 @@ cask "ntrecord" do
   caveats <<~EOS
     GIF recording is self-contained. MP4 and WebM output require ffmpeg:
       brew install ffmpeg
+
+    To teach your AI agents how to use ntrecord:
+      ntrecord skill install
   EOS
 end
