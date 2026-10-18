@@ -38,8 +38,11 @@ jobs:
           HOMEBREW_NO_ANALYTICS: "1"
         shell: bash
         run: |
-          shopt -s nullglob globstar
-          casks=(Casks/**/*.rb)
+          # macOS ships Bash 3.2, which does not support globstar.
+          casks=()
+          while IFS= read -r -d '' cask; do
+            casks+=("$cask")
+          done < <(find Casks -type f -name '*.rb' -print0)
           if ((${#casks[@]} == 0)); then
             echo "No casks published yet."
             exit 0
