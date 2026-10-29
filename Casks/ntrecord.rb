@@ -4,26 +4,26 @@ cask "ntrecord" do
     depends_on macos: :ventura
   end
 
-  version "0.2.0"
+  version "0.2.1"
 
   on_macos do
     on_intel do
-      sha256 "a3c2a65d8afb796ae571904a43830330c20e0fe7428e97d3e023b4b223ac94a5"
+      sha256 "99d832850c87d59bf4bc3ba30dc92ab6b33faee9b3b15e3702186ebc149ab0ef"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_amd64.tar.gz"
     end
     on_arm do
-      sha256 "5d9dcd910157ec0d91569f418bf9ebcf0207b442c4d0117b95d4acec57aacea6"
+      sha256 "222075ae1de98dead1f844de00bb4712bab16d4b122257b4b9d2e3f63b22dc40"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_arm64.tar.gz"
     end
   end
 
   on_linux do
     on_intel do
-      sha256 "cc22dc0a0ec6d094ce2940cbc73e9628686577cba31679af95de9170bce0ff75"
+      sha256 "bb3bd6b384661395988f383a6740502b88c8384d153bc3b2885b943877376799"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_amd64.tar.gz"
     end
     on_arm do
-      sha256 "ace9332ddd9bc7f32403048ee56fd1ea8380dd5958a7bd8d5094bc5bc558a0eb"
+      sha256 "7a19f62375dbce1f584ce36b5413025cde0f5a49f23adecad65b5d6c92a5d4e3"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_arm64.tar.gz"
     end
   end
