@@ -4,27 +4,26 @@ cask "ntrecord" do
     depends_on macos: :ventura
   end
 
-  version "0.2.1"
+  version "0.3.0"
 
   on_macos do
-    on_intel do
-      sha256 "99d832850c87d59bf4bc3ba30dc92ab6b33faee9b3b15e3702186ebc149ab0ef"
-      url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_amd64.tar.gz"
-    end
     on_arm do
-      sha256 "222075ae1de98dead1f844de00bb4712bab16d4b122257b4b9d2e3f63b22dc40"
+      sha256 "6cf7446d9b714bfabd1e28632aeceea8db8f6c7e3930ab698bc8ce10c5158059"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_arm64.tar.gz"
     end
-  end
-
-  on_linux do
     on_intel do
-      sha256 "bb3bd6b384661395988f383a6740502b88c8384d153bc3b2885b943877376799"
-      url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_amd64.tar.gz"
+      sha256 "93703adec24a6edf656ec024db480f0e2b78c37f277a2fc319b410fd25b539bf"
+      url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_darwin_amd64.tar.gz"
     end
+  end
+  on_linux do
     on_arm do
-      sha256 "7a19f62375dbce1f584ce36b5413025cde0f5a49f23adecad65b5d6c92a5d4e3"
+      sha256 "cb982892a4723662471c65a3c39588463fb84f37e1de70ab8fc49350f0819520"
       url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_arm64.tar.gz"
+    end
+    on_intel do
+      sha256 "69f4da288202f38727bce4c190b9d16f792376662304cdeacbfef4e7422fc45b"
+      url "https://github.com/NimbleTerminal/ntrecord/releases/download/v#{version}/ntrecord_#{version}_linux_amd64.tar.gz"
     end
   end
 
@@ -38,7 +37,7 @@ cask "ntrecord" do
 
   binary "ntrecord"
 
-  # No zap stanza required
+  zap :not_required
 
   caveats <<~EOS
     GIF recording is self-contained. MP4 and WebM output require ffmpeg:
