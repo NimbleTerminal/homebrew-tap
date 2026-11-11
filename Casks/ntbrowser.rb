@@ -1,9 +1,9 @@
 cask "ntbrowser" do
   arch arm: "arm64", intel: "amd64"
 
-  version "0.1.0"
-  sha256 arm:   "cff0920ebbeae62e175c5b33f23afdf351c0d9a32792ebc86b1210ebcccb02cf",
-         intel: "ed9d329a534dee9b2ea16e9f5c30f82d7c2ccc9b5ddedd889a8bc03b7d74175c"
+  version "0.2.0"
+  sha256 arm:   "c895a841675180b66bb962c8e579b35f0b2107ce9faf301e277b9e905e9a611c",
+         intel: "b9f9457d0e28e69888fc2a0bdb515cae5c27505eef702029f871b1f925b5eb51"
 
   url "https://github.com/NimbleTerminal/ntbrowser/releases/download/v#{version}/ntbrowser_#{version}_darwin_#{arch}.tar.gz"
   name "ntbrowser"
@@ -11,6 +11,7 @@ cask "ntbrowser" do
   homepage "https://github.com/NimbleTerminal/ntbrowser"
 
   binary "ntbrowser"
+  binary "glynx"
   binary "ntbrowser-media"
 
   caveats <<~EOS
