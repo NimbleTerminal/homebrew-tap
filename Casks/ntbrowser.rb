@@ -1,9 +1,9 @@
 cask "ntbrowser" do
   arch arm: "arm64", intel: "amd64"
 
-  version "0.2.0"
-  sha256 arm:   "c895a841675180b66bb962c8e579b35f0b2107ce9faf301e277b9e905e9a611c",
-         intel: "b9f9457d0e28e69888fc2a0bdb515cae5c27505eef702029f871b1f925b5eb51"
+  version "0.3.1"
+  sha256 arm:   "0da00872324d2350101f383cffe3db644a373fbbfdb4ea3ff8714685696804cb",
+         intel: "2720ad1b2d3e5273f9906aabe7ddc8cb38ae08984b54d51abba83232ac5b4523"
 
   url "https://github.com/NimbleTerminal/ntbrowser/releases/download/v#{version}/ntbrowser_#{version}_darwin_#{arch}.tar.gz"
   name "ntbrowser"
